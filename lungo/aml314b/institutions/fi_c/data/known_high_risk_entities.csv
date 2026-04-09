@@ -1,0 +1,4 @@
+entity_id,entity_name,risk_level
+ENTITY-JOHN-01,John Doe,HIGH
+ENTITY-SAFIYA-01,Safiya Rahman,HIGH
+ENTITY-OTHER-02,Acme Shell,MEDIUM

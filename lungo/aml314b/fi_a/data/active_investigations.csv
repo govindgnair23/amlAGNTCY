@@ -1,0 +1,3 @@
+case_id,investigation_type,entity_id,entity_name,counterparty_id,time_window_start,time_window_end,status,case_summary
+CASE-JOHN-01,MONEY_MULE,ENTITY-JOHN-01,John Doe,DISCOVERY_GROUP_1,2026-03-01T00:00:00Z,2026-03-15T23:59:59Z,ACTIVE,"cash deposited at FI_A and transferred to external institutions over a two week period."
+CASE-SAFIYA-01,TERRORIST_FINANCING,ENTITY-SAFIYA-01,Safiya Rahman,DISCOVERY_GROUP_2,2026-03-05T00:00:00Z,2026-03-18T23:59:59Z,ACTIVE,"inbound transfers from multiple remitters were followed by rapid cross-border movement linked to a suspected facilitation network."

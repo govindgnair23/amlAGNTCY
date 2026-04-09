@@ -1,0 +1,11 @@
+institution_id,transport,endpoint,enabled
+FI_B,A2A,http://aml-fi-b:9120,TRUE
+FI_C,A2A,http://aml-fi-c:9121,TRUE
+FI_D,A2A,http://aml-fi-d:9122,TRUE
+FI_E,A2A,http://aml-fi-e:9123,TRUE
+FI_F,A2A,http://aml-fi-f:9124,TRUE
+FI_B,SLIM,http://slim:46357,TRUE
+FI_C,SLIM,http://slim:46357,TRUE
+FI_D,SLIM,http://slim:46357,TRUE
+FI_E,SLIM,http://slim:46357,TRUE
+FI_F,SLIM,http://slim:46357,TRUE

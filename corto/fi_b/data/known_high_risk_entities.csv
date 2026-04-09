@@ -1,0 +1,3 @@
+entity_id,entity_name,risk_level,notes
+JOHN-DOE,John Doe,HIGH,Linked to rapid pass-through behavior.
+JIM-DOE,Jim Doe,MEDIUM,Prior alerts but timing uncertain.

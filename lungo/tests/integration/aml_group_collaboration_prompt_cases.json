@@ -1,0 +1,22 @@
+{
+  "cases": [
+    {
+      "investigation_type": "MONEY_MULE",
+      "prompt": "For the money mule case CASE-JOHN-01, review entity John Doe with entity id ENTITY-JOHN-01. Case context: cash deposited at FI_A and transferred to external institutions over a two week period.",
+      "expected_candidates": ["FI_B", "FI_C", "FI_D", "FI_E"],
+      "expected_accepted": ["FI_B", "FI_C", "FI_D"],
+      "expected_declined": ["FI_E"],
+      "expected_participants": ["FI_A", "FI_B", "FI_C", "FI_D"],
+      "expected_contributors": ["FI_B", "FI_C", "FI_D"]
+    },
+    {
+      "investigation_type": "TERRORIST_FINANCING",
+      "prompt": "For the terrorist financing case CASE-SAFIYA-01, review entity Safiya Rahman with entity id ENTITY-SAFIYA-01. Case context: inbound transfers from multiple remitters were followed by rapid cross-border movement linked to a suspected facilitation network.",
+      "expected_candidates": ["FI_B", "FI_C", "FI_D", "FI_F"],
+      "expected_accepted": ["FI_C", "FI_F"],
+      "expected_declined": ["FI_B", "FI_D"],
+      "expected_participants": ["FI_A", "FI_C", "FI_F"],
+      "expected_contributors": ["FI_C", "FI_F"]
+    }
+  ]
+}

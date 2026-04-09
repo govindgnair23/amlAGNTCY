@@ -1,0 +1,26 @@
+{
+  "aml_discovery_prompts": [
+    {
+      "investigation_type": "MONEY_MULE",
+      "prompt": "For the money mule case CASE-JOHN-01, review entity John Doe with entity id ENTITY-JOHN-01. Case context: cash deposited at FI_A and transferred to external institutions over a two week period.",
+      "description": "Discovery only: FI_A first probes the money mule lane over NATS, then sends explicit case discovery only to the responding cohort."
+    },
+    {
+      "investigation_type": "TERRORIST_FINANCING",
+      "prompt": "For the terrorist financing case CASE-SAFIYA-01, review entity Safiya Rahman with entity id ENTITY-SAFIYA-01. Case context: inbound transfers from multiple remitters were followed by rapid cross-border movement linked to a suspected facilitation network.",
+      "description": "Discovery only: FI_A first probes the terrorist financing lane over NATS, then sends explicit case discovery only to the responding cohort."
+    }
+  ],
+  "aml_group_collaboration_prompts": [
+    {
+      "investigation_type": "MONEY_MULE",
+      "prompt": "For the money mule case CASE-JOHN-01, review entity John Doe with entity id ENTITY-JOHN-01. Case context: cash deposited at FI_A and transferred to external institutions over a two week period.",
+      "description": "Discovery plus collaboration: probes the money mule lane first, then forms collaboration only from explicit accept responders."
+    },
+    {
+      "investigation_type": "TERRORIST_FINANCING",
+      "prompt": "For the terrorist financing case CASE-SAFIYA-01, review entity Safiya Rahman with entity id ENTITY-SAFIYA-01. Case context: inbound transfers from multiple remitters were followed by rapid cross-border movement linked to a suspected facilitation network.",
+      "description": "Discovery plus collaboration: probes the terrorist financing lane first, then forms collaboration only from explicit accept responders."
+    }
+  ]
+}

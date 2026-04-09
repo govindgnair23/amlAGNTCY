@@ -1,0 +1,3 @@
+entity_id,entity_name,risk_level
+ENTITY-JOHN-01,John Doe,HIGH
+ENTITY-OTHER-03,Northwind LLC,MEDIUM

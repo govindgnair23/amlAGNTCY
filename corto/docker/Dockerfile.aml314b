@@ -1,0 +1,22 @@
+FROM python:3.13.0-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+ENV VIRTUAL_ENV=/venv
+ENV UV_PROJECT_ENVIRONMENT=/venv
+ENV PATH="/venv/bin:$PATH"
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends git curl wget iputils-ping && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN pip install --no-cache-dir uv && \
+    uv venv -q /venv
+
+WORKDIR /app
+
+COPY corto/pyproject.toml corto/uv.lock ./
+RUN uv sync --locked --no-editable
+
+COPY corto/ .

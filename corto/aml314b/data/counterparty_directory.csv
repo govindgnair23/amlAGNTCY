@@ -1,0 +1,3 @@
+institution_id,transport,endpoint,enabled
+FI-B,A2A,http://127.0.0.1:8012,true
+FI-B,SLIM,http://localhost:46357,true

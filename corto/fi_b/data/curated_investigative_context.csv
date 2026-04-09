@@ -1,0 +1,4 @@
+entity_id,case_id,summary,activity_start,activity_end
+JOHN-DOE,CASE-JOHN-01,FI-B observed rapid pass-through of transactions received at FI-B to FI-C and FI-D within 1 day.,2025-12-16T00:00:00Z,2025-12-20T00:00:00Z
+JOHN-DOE,CASE-JOHN-SSN,FI-B observed rapid pass-through activity; reference SSN 123-45-6789 in source notes.,2025-12-16T00:00:00Z,2025-12-20T00:00:00Z
+JIM-DOE,CASE-JIM-01,FI-B observed incoming ACH credits followed by outbound wires.,2025-12-01T00:00:00Z,2025-12-05T00:00:00Z

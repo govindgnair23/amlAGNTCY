@@ -1,0 +1,99 @@
+name: lungo-aml314b
+
+x-aml314b-common: &aml314b-common
+  build:
+    context: ..
+    dockerfile: lungo/docker/Dockerfile.aml314b
+  environment:
+    AML314B_MESSAGE_TRANSPORT: SLIM
+    AML314B_TRANSPORT_SERVER_ENDPOINT: http://slim:46357
+    AML314B_PROBE_TRANSPORT: NATS
+    AML314B_PROBE_NATS_ENDPOINT: nats://nats:4222
+    AML314B_DIRECTORY_PATH: aml314b/data/counterparty_directory.docker.csv
+    OTEL_SDK_DISABLED: "true"
+
+services:
+  nats:
+    image: nats:latest
+    container_name: lungo-aml314b-nats
+
+  slim:
+    image: ghcr.io/agntcy/slim:0.6.1
+    container_name: lungo-aml314b-slim
+    environment:
+      PASSWORD: ${SLIM_GATEWAY_PASSWORD:-dummy_password}
+      CONFIG_PATH: /config.yaml
+    volumes:
+      - ./config/docker/slim/server-config.yaml:/config.yaml
+    command: ["/slim", "--config", "/config.yaml"]
+
+  aml-fi-a:
+    <<: *aml314b-common
+    container_name: lungo-aml314b-fi-a
+    depends_on:
+      - nats
+      - slim
+      - aml-fi-b
+      - aml-fi-c
+      - aml-fi-d
+      - aml-fi-e
+      - aml-fi-f
+    environment:
+      AML314B_MESSAGE_TRANSPORT: SLIM
+      AML314B_TRANSPORT_SERVER_ENDPOINT: http://slim:46357
+      AML314B_PROBE_TRANSPORT: NATS
+      AML314B_PROBE_NATS_ENDPOINT: nats://nats:4222
+      AML314B_DIRECTORY_PATH: aml314b/data/counterparty_directory.docker.csv
+    ports:
+      - "9110:9110"
+    command:
+      [
+        "python",
+        "-m",
+        "uvicorn",
+        "aml314b.fi_a.main:app",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "9110",
+      ]
+
+  aml-fi-b:
+    <<: *aml314b-common
+    container_name: lungo-aml314b-fi-b
+    depends_on:
+      - nats
+      - slim
+    command: ["python", "aml314b/institutions/fi_b/server.py"]
+
+  aml-fi-c:
+    <<: *aml314b-common
+    container_name: lungo-aml314b-fi-c
+    depends_on:
+      - nats
+      - slim
+    command: ["python", "aml314b/institutions/fi_c/server.py"]
+
+  aml-fi-d:
+    <<: *aml314b-common
+    container_name: lungo-aml314b-fi-d
+    depends_on:
+      - nats
+      - slim
+    command: ["python", "aml314b/institutions/fi_d/server.py"]
+
+  aml-fi-e:
+    <<: *aml314b-common
+    container_name: lungo-aml314b-fi-e
+    depends_on:
+      - nats
+      - slim
+    command: ["python", "aml314b/institutions/fi_e/server.py"]
+
+  aml-fi-f:
+    <<: *aml314b-common
+    container_name: lungo-aml314b-fi-f
+    depends_on:
+      - nats
+      - slim
+    command: ["python", "aml314b/institutions/fi_f/server.py"]

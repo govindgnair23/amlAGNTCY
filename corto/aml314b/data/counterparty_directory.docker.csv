@@ -1,0 +1,3 @@
+institution_id,transport,endpoint,enabled
+FI-B,A2A,http://aml-fi-b:8012,true
+FI-B,SLIM,http://slim:46357,true

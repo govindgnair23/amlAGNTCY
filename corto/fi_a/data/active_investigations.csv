@@ -1,0 +1,6 @@
+case_id,entity_id,counterparty_id,time_window_start,time_window_end,status,case_summary
+CASE-JOHN-01,JOHN-DOE,FI-B,2025-12-15T00:00:00Z,2025-12-29T00:00:00Z,ACTIVE,Cash deposited at FI-A and sent via Zelle to FI-B over a two week period.
+CASE-JOHN-SSN,JOHN-DOE,FI-B,2025-12-15T00:00:00Z,2025-12-29T00:00:00Z,ACTIVE,Cash deposited at FI-A and sent via Zelle to FI-B over a two week period.
+CASE-JANE-01,JANE-DOE,FI-B,2025-11-01T00:00:00Z,2025-11-15T00:00:00Z,ACTIVE,Review of Jane Doe activity; no known high-risk indicators.
+CASE-JIM-01,JIM-DOE,FI-B,2025-09-01T00:00:00Z,2025-09-15T00:00:00Z,ACTIVE,Jim Doe activity includes structured cash deposits.
+CASE-JIMMY-01,JIMMY-DOE,FI-B,2025-10-01T00:00:00Z,2025-10-15T00:00:00Z,ACTIVE,Jimmy Doe activity suggests possible terrorist financing patterns.

@@ -1,0 +1,54 @@
+name: corto-aml314b
+
+x-aml314b-common: &aml314b-common
+  build:
+    context: ..
+    dockerfile: corto/docker/Dockerfile.aml314b
+  environment:
+    AML314B_ENABLE_LAYERED_DISCLOSURE: "false"
+    AML314B_ENABLE_TRACING: "false"
+    AML314B_MESSAGE_TRANSPORT: SLIM
+    AML314B_TRANSPORT_SERVER_ENDPOINT: http://slim:46357
+    AML314B_DIRECTORY_PATH: aml314b/data/counterparty_directory.docker.csv
+    AML314B_USE_LLM_RISK_CLASSIFIER: "false"
+    OTEL_SDK_DISABLED: "true"
+
+services:
+  slim:
+    image: ghcr.io/agntcy/slim:0.6.1
+    container_name: corto-aml314b-slim
+    environment:
+      PASSWORD: ${SLIM_GATEWAY_PASSWORD:-dummy_password}
+      CONFIG_PATH: /config.yaml
+    volumes:
+      - ./config/docker/slim/server-config.yaml:/config.yaml
+    command: ["/slim", "--config", "/config.yaml"]
+
+  aml-fi-a:
+    <<: *aml314b-common
+    container_name: corto-aml314b-fi-a
+    depends_on:
+      - slim
+      - aml-fi-b
+    ports:
+      - "8011:8011"
+    command:
+      [
+        "uv",
+        "run",
+        "python",
+        "-m",
+        "uvicorn",
+        "fi_a.main:app",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8011",
+      ]
+
+  aml-fi-b:
+    <<: *aml314b-common
+    container_name: corto-aml314b-fi-b
+    depends_on:
+      - slim
+    command: ["uv", "run", "python", "fi_b/a2a_server.py"]

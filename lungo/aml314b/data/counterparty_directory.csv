@@ -1,0 +1,11 @@
+institution_id,transport,endpoint,enabled
+FI_B,A2A,http://127.0.0.1:9120,TRUE
+FI_C,A2A,http://127.0.0.1:9121,TRUE
+FI_D,A2A,http://127.0.0.1:9122,TRUE
+FI_E,A2A,http://127.0.0.1:9123,TRUE
+FI_F,A2A,http://127.0.0.1:9124,TRUE
+FI_B,SLIM,http://127.0.0.1:46357,TRUE
+FI_C,SLIM,http://127.0.0.1:46357,TRUE
+FI_D,SLIM,http://127.0.0.1:46357,TRUE
+FI_E,SLIM,http://127.0.0.1:46357,TRUE
+FI_F,SLIM,http://127.0.0.1:46357,TRUE

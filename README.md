@@ -13,8 +13,6 @@ The repository intentionally keeps only the AML runtime, tests, frontends, and m
   Bilateral runtime, enforcement, tests, and AML UI
 - `lungo/`
   Multilateral discovery/collaboration runtime, tests, and AML UI
-- `AML_REPO_CLEANUP_EXECPLAN.md`
-  Cleanup record for the AML-only repository shape
 
 ## Setup
 
@@ -65,5 +63,7 @@ npm run build
 ```
 
 ## Attribution
+
+Upstream reference repository: `https://github.com/agntcy/coffeeAgntcy`
 
 This repository is adapted from AGNTCY examples, but the published surface here is intentionally rewritten around AML-only workflows and sample institutions.

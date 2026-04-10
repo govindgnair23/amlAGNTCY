@@ -24,6 +24,16 @@ The implementation covers:
 - `tests/`
   Focused AML integration coverage
 
+## Supported Modes
+
+- `NATS`
+  Used for the coarse lane-probe stage on `aml314b.probe.money_mule` and
+  `aml314b.probe.terrorist_financing`
+- `A2A`
+  Uses direct responder endpoints for explicit case discovery and collaboration, while preserving `investigation_type` without a lane name
+- `SLIM`
+  Uses lane-specific topics for explicit case discovery and collaboration, and returns lane metadata such as `aml314b.money_mule`
+
 ## Seeded Investigation Types
 
 - `MONEY_MULE`
@@ -46,6 +56,17 @@ The Phase 3E workflow is intentionally split into three steps:
 3. `FI_A` sends the existing explicit `DiscoveryRequest` only to that candidate set, and collaboration still starts only from later `ACCEPT` responders.
 
 The lane probe is not a group session. It carries no `case_id`, `entity_id`, `entity_name`, or `case_context`.
+
+## Structured FI_A Endpoints
+
+- `POST /agent/probe`
+  Returns the coarse shortlist for an `investigation_type`
+- `GET /agent/cases?investigation_type=...`
+  Returns the active seeded FI_A cases for that lane
+- `POST /agent/cases/run`
+  Runs explicit discovery or discovery plus collaboration from `case_id`, `investigation_type`, and `run_mode`
+
+`POST /agent/prompt` and `POST /agent/prompt/collaboration` still exist as compatibility paths for the older prompt-driven workflow.
 
 ## Local Setup
 
@@ -225,5 +246,5 @@ The main AML runtime knobs live in `config/config.py`.
 
 ## Notes
 
-- `aml314b/README.md` provides a shorter technical reference for the AML subtree.
+- The detailed multilateral architecture write-up lives in `aml314b/ARCHITECTURE.md`.
 - This sample is adapted from AGNTCY reference code, but the published surface here is intentionally limited to the AML workflow.

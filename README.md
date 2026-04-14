@@ -7,12 +7,29 @@
 
 The repository intentionally keeps only the AML runtime, tests, frontends, and minimum compose/config assets needed to run and validate those samples.
 
+## Upstream Reference
+
+This repository is adapted from the original AGNTCY sample repository:
+[agntcy/coffeeAgntcy](https://github.com/agntcy/coffeeAgntcy).
+
+Use the upstream repository for the broader non-AML AGNTCY context. This repository documents and publishes only the AML-focused adaptation.
+
 ## Repository Layout
 
 - `corto/`
   Bilateral runtime, enforcement, tests, and AML UI
 - `lungo/`
   Multilateral discovery/collaboration runtime, tests, and AML UI
+
+## Prerequisites
+
+- Python `3.13`
+- `uv`
+- `npm` for the frontend builds
+- Docker Engine with Docker Compose for the containerized flows
+- Provider credentials configured via the sample `.env.example` files
+
+The complete Python dependency sets live in [`corto/pyproject.toml`](/Users/learningmachine/Documents/Python-dev/AML_AGNTCY/coffeeAgntcy/amlAGNTCY/corto/pyproject.toml) and [`lungo/pyproject.toml`](/Users/learningmachine/Documents/Python-dev/AML_AGNTCY/coffeeAgntcy/amlAGNTCY/lungo/pyproject.toml).
 
 ## Setup
 
@@ -63,7 +80,5 @@ npm run build
 ```
 
 ## Attribution
-
-Upstream reference repository: `https://github.com/agntcy/coffeeAgntcy`
 
 This repository is adapted from AGNTCY examples, but the published surface here is intentionally rewritten around AML-only workflows and sample institutions.
